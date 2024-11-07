@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Stock</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Value of Transaction</th>
+        <th scope="col">Date of Transaction</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for stock in history %}
+      <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.shares }}</td>
+        <td>{{ (stock.shares * stock.price) | abs | usd }}</td>
+        <td>{{ stock.date_of_purchase }}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+<!-- symbol and number of shares -->
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto"
+             name="symbol" placeholder="Enter stock symbol" type="text">
+        </div>
+        <div>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto"
+             name="shares" placeholder="Enter number of shares" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Buy</button>
+    </form>
+{% endblock %}

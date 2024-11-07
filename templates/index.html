@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+<!-- symbol and number of shares -->
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">stocks</th>
+        <th scope="col">shares</th>
+        <th scope="col">price_bought</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for stock in portfolio %}
+
+      <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.shares }}</td>
+        <td>{{ stock.price | usd}}</td>
+      </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Cash</th>
+        <th scope="col">Value of stocks</th>
+        <th scope="col">Total</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ cash | usd }}</td>
+            <td>{{ total_value | usd}}</td>
+            <td>{{ grand_total | usd }}</td>
+
+</tbody>
+</div>
+</table>
+
+<form action="/" method="post">
+  <div class="mb-3">
+      <input autocomplete="off"
+       name="added_cash" placeholder="Enter amount" type="number">
+  </div>
+  <button name = "myButton" class="btn btn-primary" type="submit">Add cash</button>
+</form>
+
+{% endblock %}
